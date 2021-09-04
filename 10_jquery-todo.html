@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Todo</title>
+    <style media="screen">
+      #menu{
+        border:solid 1px;
+        padding:10px;
+      }
+      #hideBTN{
+        float:right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>jQuery Todo</h1>
+
+    <p>
+      <button type="button" name="button" id="showBTN"> Load Todos </button>
+    </p>
+
+    <div id="menu">
+      <button type="button" name="button" id="hideBTN">Close</button>
+      <input type="text" id="todoEntry">
+      <button type="button" id="addBTN">Add</button>
+
+      <div id="todoContent">
+        <!-- loaded by JavaScript -->
+      </div>
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      $("#menu").hide();
+      $("#showBTN").click(function(){
+          //console.log("works!");
+          $("#menu").show();
+      });
+      $("#hideBTN").click(function(){
+          //console.log("works!");
+          $("#menu").hide();
+      });
+      $("#addBTN").click(function(){
+          var entry=$("#todoEntry").val();
+          console.log(entry);
+          $("#todoContent").append("<p>"+entry+"</p>");
+      });
+
+    </script>
+
+  </body>
+</html>

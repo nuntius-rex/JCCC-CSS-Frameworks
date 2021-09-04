@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Audio/Video</title>
+  </head>
+  <body>
+    <h1>Audio/Video</h1>
+
+    <audio id="audioCTRL" controls>
+      <source src="audio/horse.ogg" type="audio/ogg">
+      <source src="audio/horse.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>
+      <a href="#" id="audioPlay">Play</a>
+      <a href="#" id="audioPause">Pause</a>
+      <a href="#" id="audioUp">Up</a>
+      <a href="#" id="audioDown">Dn</a>
+      <a href="#" id="audioMute">Mute</a>
+    </p>
+
+    <video controls>
+      <source src="video/planet.mp4" type="video/mp4">
+    </video>
+
+    <p>
+      <a href="#" id="videoPlay">Play</a>
+      <a href="#" id="videoPause">Pause</a>
+      <a href="#" id="videoStop">Stop</a>
+    </p>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      /*Audio Controls*/
+      $("#audioPlay").click(function(){
+          //console.log("clicked audio play");
+          $("#audioCTRL").trigger('play');
+      });
+
+      $("#audioPause").click(function(){
+          $("#audioCTRL").trigger('pause');
+      });
+
+      $("#audioUp").click(function(){
+          var vol=$("#audioCTRL").prop("volume")+.2;
+          if(vol>1){
+            vol=1;
+          }
+          $("#audioCTRL").prop("volume",vol);
+      });
+
+      $("#audioDown").click(function(){
+          var vol=$("#audioCTRL").prop("volume")-.2;
+          if(vol<0){
+            vol=0;
+          }
+          $("#audioCTRL").prop("volume",vol);
+      });
+
+      $("#audioMute").click(function(){
+            var muted=$("#audioCTRL").prop("muted");
+            $("#audioCTRL").prop("muted", !muted );
+      });
+
+      /*Video Controls*/
+      var video=$('video').get(0);
+
+      //videoPlay
+      $("#videoPlay").click(function(){
+          //video.load();
+          video.play();
+      });
+
+      //videoPause
+      $("#videoPause").click(function(){
+          video.pause();
+      });
+
+      //videoStop
+      $("#videoStop").click(function(){
+          video.pause();
+          video.currentTime=0;
+      });
+
+
+    </script>
+
+  </body>
+</html>

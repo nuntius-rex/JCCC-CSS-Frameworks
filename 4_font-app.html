@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Font App</title>
+
+    <style media="screen">
+      @font-face {
+          font-family: StarWars;
+          src:url(fonts/Starjedi.ttf);
+      }
+      .starwars{
+        font-family: StarWars;
+      }
+
+      @font-face {
+          font-family: Viking;
+          src:url(fonts/PRViking.ttf);
+      }
+      .viking{
+          font-family:Viking;
+      }
+
+      @font-face {
+          font-family:DigiClock;
+          src:url(fonts/digital-7.ttf);
+      }
+      .digiclock{
+        font-family:DigiClock;
+      }
+
+      @font-face {
+          font-family:CreamCake;
+          src:url(fonts/CreamCake.otf);
+      }
+      .caligraphy{
+        font-family:CreamCake;
+      }
+
+
+    </style>
+
+  </head>
+  <body>
+    <h1>Font App</h1>
+
+    <p>
+      <label for="">Text Entry:</label><br>
+      <input type="text" id="sampleTXT" value="">
+    </p>
+
+    <p>
+      <label for="">Pre-Select Options:</label><br>
+      <select id="sampleTXTSelect">
+        <option value=""></option>
+        <option value="Sample Text 1">Sample Text 1</option>
+        <option value="Sample Text 2">Sample Text 2</option>
+      </select>
+    </p>
+
+    <h1 class="sample starwars">sample</h1>
+
+    <h1 class="sample viking">sample</h1>
+
+    <h1 class="sample digiclock">sample</h1>
+
+    <h1 class="sample caligraphy">sample</h1>
+
+    <p><a href="https://www.dafont.com/">https://www.dafont.com/</a></p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        $("#sampleTXT").keyup(function(){
+          var txt=$("#sampleTXT").val();
+          //console.log(txt);
+          $(".sample").html(txt);
+        });
+
+        $("#sampleTXTSelect").change(function(){
+          var txt=$("#sampleTXTSelect").val();
+          $(".sample").html(txt);
+        });
+
+    </script>
+
+
+  </body>
+</html>

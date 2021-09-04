@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Show/Hide & Slide</title>
+    <style media="screen">
+      #container{
+        border:solid 1px;
+        width:300px;
+        height:200px;
+        padding:10px;
+      }
+      #sidePanel{
+        border:solid 1px;
+        width:300px;
+        height:200px;
+        padding:10px;
+        position: absolute;
+        left:-350px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Show/Hide & Slide</h1>
+
+    <p>
+      <a href="#" id="toggleShowHide"> Toggle Show/Hide </a>
+    </p>
+
+    <!--
+    <p>
+      <a href="#" id="showContainer"> Show Container </a>
+    </p>
+    <p>
+      <a href="#" id="hideContainer"> Hide Container </a>
+    </p>
+    -->
+
+    <p>
+      <a href="#" id="sidePanelLink">Open/Close Side Panel</a>
+    </p>
+
+
+    <div id="container">
+      Content
+    </div>
+
+    <div id="sidePanel">
+      Side Panel Content
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $("#container").hide();
+
+        $("#toggleShowHide").click(function(){
+          $("#container").toggle();
+        });
+
+        /*
+        $("#showContainer").click(function(){
+          $("#container").show();
+        });
+
+        $("#hideContainer").click(function(){
+          $("#container").hide();
+        });
+        */
+
+        $("#sidePanelLink").click(function(){
+              //Do something
+              //console.log("clicked");
+              var left=parseInt( $("#sidePanel").css("left") );
+              //console.log(left);
+
+              if(left== -350){
+                  $("#sidePanel").animate({
+                    'left':'+=370'
+                  },2000);
+              }else{
+                  $("#sidePanel").animate({
+                    'left':'-350'
+                  },2000);
+              }
+
+        });
+
+    </script>
+
+  </body>
+</html>

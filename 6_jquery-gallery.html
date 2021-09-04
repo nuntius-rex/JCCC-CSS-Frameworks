@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Gallery</title>
+    <style media="screen">
+        #imgMenu{
+          border: solid 1px;
+          padding: 10px;
+          width: 420px;
+          /*width: 110px;*/
+        }
+        #imgMenu img{
+          width:100px;
+          cursor:pointer;
+        }
+        #galleryDisplay{
+          border: solid 1px;
+          padding: 10px;
+          width: 420px;
+          height: 300px;
+          text-align:center;
+        }
+    </style>
+
+  </head>
+  <body>
+    <h1>jQuery Gallery</h1>
+
+    <div id="galleryDisplay">
+      <!-- gallery image will load here -->
+      <img src="img/photo1.jpg" alt="">
+    </div>
+
+    <div id="imgMenu">
+      <img src="img/photo1.jpg" alt="">
+      <img src="img/photo2.jpg" alt="">
+      <img src="img/photo3.jpg" alt="">
+      <img src="img/photo4.jpg" alt="">
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      $("#imgMenu img").click(function(){
+          //console.log(this.src);
+          var img="<img src='"+this.src+"'>";
+          //console.log(img);
+
+          //$("#galleryDisplay").html(img);
+
+          $("#galleryDisplay")
+            .animate({'opacity':0},0)       //Take the image to 0 opacity
+            .animate({'opacity':1},2000)    //Slowly fade the image back to 1 opacity
+            .html(img);
+
+      });
+    </script>
+
+  </body>
+</html>

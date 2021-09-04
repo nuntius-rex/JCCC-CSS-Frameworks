@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery StyleSheets Switcher</title>
+    <link id="theme_color" rel="stylesheet" href="css/theme/light.css">
+  </head>
+  <body>
+    <h1>jQuery StyleSheets Switcher</h1>
+
+    <a href="#" id="dark">Dark</a> | <a href="#" id="light">Light</a>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      $("#dark").click(function(){
+          $("#theme_color").attr("href","css/theme/dark.css");
+      });
+
+      $("#light").click(function(){
+          $("#theme_color").attr("href","css/theme/light.css");
+      });
+    </script>
+  </body>
+</html>
